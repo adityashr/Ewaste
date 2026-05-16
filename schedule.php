@@ -52,7 +52,7 @@ if (isset($_POST['request'])) {
                 $mail->Username = 'aditya31182005@gmail.com';
 
                 // GOOGLE APP PASSWORD
-                $mail->Password = 'ieub qbxn eiyk fkfc';
+                $mail->Password = 'pmaw qnuh hcpu hdiu';
 
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = 587;
@@ -105,7 +105,7 @@ if (isset($_POST['request'])) {
                 $adminMail->SMTPAuth = true;
 
                 $adminMail->Username = 'aditya31182005@gmail.com';
-                $adminMail->Password =  'ieub qbxn eiyk fkfc';
+                $adminMail->Password =  'pmaw qnuh hcpu hdiu';
 
                 $adminMail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $adminMail->Port = 587;
