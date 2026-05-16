@@ -223,6 +223,46 @@
                 margin: 12px;
             }
         }
+        /* =========================
+   FORCE SAME DESIGN ON MOBILE
+   ========================= */
+@media (max-width: 768px) {
+
+    body {
+        overflow: hidden;
+    }
+
+    .hero {
+        height: 40vh; /* same as desktop */
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: 48px; /* same as desktop */
+    }
+
+    .hero p {
+        font-size: 20px; /* same as desktop */
+    }
+
+    .flip-card {
+        width: 500px !important;  /* force desktop size */
+        height: 350px !important; /* force desktop size */
+        transform: scale(0.75);   /* fit screen but keep design same */
+        transform-origin: center;
+    }
+
+    .flip-card a {
+        font-size: 18px;
+        padding: 18px 40px;
+    }
+
+    .diagonal-bg {
+        width: 200%;
+        height: 200%;
+        left: -20%;
+    }
+}
     </style>
 </head>
 
