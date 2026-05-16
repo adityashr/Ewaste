@@ -2,7 +2,7 @@
 
 $host = "sql3.freesqldatabase.com";
 $user = "sql3827095";
-$pass = "1234";   // 👈 tumne jo set kiya
+$pass = "wDQTmSvWIK";   // 👈 tumne jo set kiya
 $db   = "sql3827095";
 
 $conn = mysqli_connect($host, $user, $pass, $db);
