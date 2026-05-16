@@ -2,12 +2,6 @@
 session_start();
 include("config.php");
 
-// Include PHPMailer
-require 'vendor/autoload.php';
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
 $msg = "";
 
 if (!isset($_SESSION['user_id'])) {
@@ -17,17 +11,23 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-$user_info = mysqli_fetch_assoc(mysqli_query($conn, "SELECT email, name FROM users WHERE id='$user_id'"));
+$userQuery = mysqli_query($conn, "SELECT * FROM users WHERE id='$user_id'");
+$user_info = mysqli_fetch_assoc($userQuery);
+
 $user_email = $user_info['email'];
-$user_name = $user_info['name'];
+$user_name  = $user_info['name'];
 
 if (isset($_POST['request'])) {
 
     $waste_type = trim($_POST['waste_type']);
-    $address = trim($_POST['address']);
-    $date = trim($_POST['date']);
+    $address    = trim($_POST['address']);
+    $date       = trim($_POST['date']);
 
-    if (empty($waste_type) || empty($address) || empty($date)) {
+    if (
+        empty($waste_type) ||
+        empty($address) ||
+        empty($date)
+    ) {
 
         $msg = "All fields are required!";
 
@@ -39,6 +39,16 @@ if (isset($_POST['request'])) {
 
         if ($stmt->execute()) {
 
+            /*
+            ============================================
+            PHPMailer TEMPORARILY DISABLED
+            ============================================
+
+            require 'vendor/autoload.php';
+
+            use PHPMailer\PHPMailer\PHPMailer;
+            use PHPMailer\PHPMailer\Exception;
+
             try {
 
                 // USER EMAIL
@@ -48,112 +58,45 @@ if (isset($_POST['request'])) {
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
 
-                // YOUR GMAIL
                 $mail->Username = 'aditya31182005@gmail.com';
+                $mail->Password = 'YOUR_APP_PASSWORD';
 
-                // GOOGLE APP PASSWORD
-                $mail->Password = 'pmaw qnuh hcpu hdiu';
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+                $mail->Port = 465;
 
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                $mail->Port = 587;
-
-                // IMPORTANT FIX
-                $mail->SMTPOptions = array(
-                    'ssl' => array(
-                        'verify_peer' => false,
-                        'verify_peer_name' => false,
-                        'allow_self_signed' => true
-                    )
+                $mail->setFrom(
+                    'aditya31182005@gmail.com',
+                    'E-Waste Management Portal'
                 );
-
-                $mail->setFrom('aditya31182005@gmail.com', 'E-Waste Portal');
 
                 $mail->addAddress($user_email, $user_name);
 
                 $mail->isHTML(true);
 
-                $mail->Subject = 'Pickup Request Submitted';
+                $mail->Subject = "Pickup Request Submitted";
 
-                $mail->Body = "
-                <h2>Hello {$user_name}</h2>
-
-                <p>Your e-waste pickup request has been submitted successfully.</p>
-
-                <h3>Pickup Details</h3>
-
-                <ul>
-                    <li><b>Waste Type:</b> {$waste_type}</li>
-                    <li><b>Address:</b> {$address}</li>
-                    <li><b>Pickup Date:</b> {$date}</li>
-                    <li><b>Status:</b> Pending</li>
-                </ul>
-
-                <br>
-
-                <p>Thank you for using our platform.</p>
-
-                <p><b>♻ E-Waste Management Portal</b></p>
-                ";
+                $mail->Body = "Pickup Request Submitted";
 
                 $mail->send();
 
-                // ADMIN EMAIL
-                $adminMail = new PHPMailer(true);
-
-                $adminMail->isSMTP();
-                $adminMail->Host = 'smtp.gmail.com';
-                $adminMail->SMTPAuth = true;
-
-                $adminMail->Username = 'aditya31182005@gmail.com';
-                $adminMail->Password =  'pmaw qnuh hcpu hdiu';
-
-                $adminMail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                $adminMail->Port = 587;
-
-                // IMPORTANT FIX
-                $adminMail->SMTPOptions = array(
-                    'ssl' => array(
-                        'verify_peer' => false,
-                        'verify_peer_name' => false,
-                        'allow_self_signed' => true
-                    )
-                );
-
-                $adminMail->setFrom('aditya31182005@gmail.com', 'E-Waste Portal');
-
-                // ADMIN RECEIVER
-                $adminMail->addAddress('aditya31182005@gmail.com', 'Admin');
-
-                $adminMail->isHTML(true);
-
-                $adminMail->Subject = 'New Pickup Request';
-
-                $adminMail->Body = "
-                <h2>New Pickup Request Received</h2>
-
-                <ul>
-                    <li><b>User Name:</b> {$user_name}</li>
-                    <li><b>User Email:</b> {$user_email}</li>
-                    <li><b>Waste Type:</b> {$waste_type}</li>
-                    <li><b>Address:</b> {$address}</li>
-                    <li><b>Pickup Date:</b> {$date}</li>
-                </ul>
-                ";
-
-                $adminMail->send();
-
-                $_SESSION['msg'] = "Pickup Request Submitted Successfully!";
-
-                header("Location: mypickups.php");
-
-                exit();
-
             } catch (Exception $e) {
 
-                // SHOW REAL ERROR
-                $msg = "Mailer Error: " . $mail->ErrorInfo;
+                echo $mail->ErrorInfo;
 
             }
+
+            ============================================
+            END MAILER
+            ============================================
+            */
+
+            // SUCCESS MESSAGE
+            $_SESSION['msg'] = "Pickup Request Submitted Successfully!";
+
+            // REDIRECT
+            header("Location: mypickups.php");
+
+            exit();
 
         } else {
 
