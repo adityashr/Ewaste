@@ -257,6 +257,165 @@ if (isset($_POST['login'])) {
                 font-size: 16px;
             }
         }
+        /* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* BACKGROUND */
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #0f172a, #1a1a1a);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ANIMATED GLOW BACKGROUND */
+body::before {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: #22c55e;
+    filter: blur(150px);
+    opacity: 0.3;
+    top: -100px;
+    left: -100px;
+    z-index: 0;
+}
+
+/* HERO */
+.hero {
+    z-index: 2;
+    text-align: center;
+    padding: 40px 20px 10px;
+    color: white;
+    animation: fadeDown 1s ease;
+}
+
+.hero h1 {
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 700;
+}
+
+.hero p {
+    margin-top: 10px;
+    font-size: clamp(14px, 2.5vw, 18px);
+    color: #cbd5e1;
+}
+
+/* CARD */
+.flip-card {
+    width: min(520px, 92%);
+    height: 360px;
+    perspective: 1200px;
+    margin-top: 30px;
+    z-index: 2;
+}
+
+/* INNER */
+.flip-card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* FLIP */
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* FRONT + BACK */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    padding: 30px;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* FRONT */
+.flip-card-front {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+}
+
+/* BACK */
+.flip-card-back {
+    background: rgba(0,0,0,0.9);
+    color: white;
+    transform: rotateY(180deg);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* TITLE */
+.flip-card h3 {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* BUTTONS */
+.flip-card a {
+    margin: 10px;
+    padding: 14px 32px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* FRONT BUTTON */
+.flip-card-front a {
+    background: #000;
+    color: #fff;
+}
+
+/* BACK BUTTON */
+.flip-card-back a {
+    background: linear-gradient(45deg, #22c55e, #16a34a);
+    color: #fff;
+}
+
+/* HOVER */
+.flip-card a:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* ANIMATIONS */
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 600px) {
+    .flip-card {
+        height: 340px;
+    }
+
+    .flip-card a {
+        padding: 12px 24px;
+        font-size: 15px;
+    }
+}
     </style>
 </head>
 
