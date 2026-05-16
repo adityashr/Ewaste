@@ -1,13 +1,13 @@
 <?php
 
-$host = "localhost"; 
-$user = "root"; 
-$pass = "";
-$db   = "ewaste_new";
+$host = "sql3.freesqldatabase.com";
+$user = "sql3827095";
+$pass = "1234";   // 👈 tumne jo set kiya
+$db   = "sql3827095";
 
 $conn = mysqli_connect($host, $user, $pass, $db);
 
 if (!$conn) {
-    die("Database connection failed: " . mysqli_connect_error());
+    die("DB connection failed: " . mysqli_connect_error());
 }
 ?>
