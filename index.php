@@ -644,6 +644,159 @@ html, body {
     }
 }
 }
+        /* =========================
+   MOBILE + TABLET RESPONSIVE FIX
+   E-WASTE PORTAL
+========================= */
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* HERO SECTION */
+.hero-section,
+.banner,
+.home-section {
+    width: 100%;
+    min-height: auto;
+    padding: 60px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* MAIN HEADING */
+.hero-section h1,
+.banner h1,
+.home-section h1 {
+    font-size: clamp(2.2rem, 8vw, 4.5rem);
+    line-height: 1.2;
+    margin-bottom: 20px;
+    word-break: break-word;
+}
+
+/* SUBTEXT */
+.hero-section p,
+.banner p,
+.home-section p {
+    font-size: clamp(1rem, 4vw, 1.4rem);
+    line-height: 1.6;
+    padding: 0 15px;
+    max-width: 95%;
+    margin: auto;
+}
+
+/* GET STARTED BOX */
+.auth-container,
+.get-started,
+.login-register-box {
+    width: 90%;
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 40px 20px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+/* BUTTONS */
+.auth-container button,
+.get-started button,
+.login-register-box button,
+.btn {
+    width: 100%;
+    max-width: 260px;
+    padding: 15px;
+    margin: 12px auto;
+    font-size: 1.2rem;
+    border-radius: 18px;
+    display: block;
+}
+
+/* TABLET */
+@media (max-width: 992px) {
+    .hero-section,
+    .banner,
+    .home-section {
+        padding: 50px 15px;
+    }
+
+    .auth-container,
+    .get-started,
+    .login-register-box {
+        width: 92%;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .hero-section h1,
+    .banner h1,
+    .home-section h1 {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+    }
+
+    .hero-section p,
+    .banner p,
+    .home-section p {
+        font-size: 1rem;
+    }
+
+    .auth-container,
+    .get-started,
+    .login-register-box {
+        padding: 35px 15px;
+    }
+
+    .auth-container button,
+    .get-started button,
+    .login-register-box button,
+    .btn {
+        font-size: 1rem;
+        padding: 14px;
+    }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+
+    .hero-section,
+    .banner,
+    .home-section {
+        padding: 40px 10px;
+    }
+
+    .hero-section h1,
+    .banner h1,
+    .home-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section p,
+    .banner p,
+    .home-section p {
+        font-size: 0.95rem;
+    }
+
+    .auth-container,
+    .get-started,
+    .login-register-box {
+        width: 95%;
+        padding: 30px 12px;
+    }
+
+    .auth-container button,
+    .get-started button,
+    .login-register-box button,
+    .btn {
+        width: 100%;
+        max-width: 220px;
+        font-size: 0.95rem;
+    }
+}
         
     
     </style>
