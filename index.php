@@ -8,797 +8,292 @@
     <title>♻ E-Waste Management Portal</title>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
-        }
+        /* =========================================
+   CLEAN RESPONSIVE CSS FOR E-WASTE PORTAL
+   KEEPING SAME DESIGN
+   Replace old responsive CSS with this only
+========================================= */
 
-        /* BODY */
-        body {
-            height: 100vh;
-            background: #18191a;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* HERO TITLE */
-        .hero {
-            position: relative;
-            z-index: 2;
-            height: 40vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            opacity: 0;
-            animation: heroAppear 1s forwards 0.3s;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
-        }
-
-        .hero p {
-            font-size: 20px;
-            color: #eee;
-        }
-
-        /* DIAGONAL BACKGROUND */
-        .diagonal-bg {
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 200%;
-            height: 200%;
-            background: #26ac24;
-            transform: rotate(-45deg);
-            animation: diagonalMove 1s ease forwards 0.8s;
-            z-index: 1;
-        }
-
-        /* FLIP CARD CONTAINER */
-        .flip-card {
-            perspective: 1200px;
-            width: 500px;
-            /* increased width */
-            height: 350px;
-            /* increased height */
-            margin: 0 auto;
-            position: relative;
-            top: -50px;
-            z-index: 2;
-            opacity: 0;
-            animation: formAppear 1s forwards 1.6s;
-        }
-
-        /* FLIP INNER */
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.8s;
-            transform-style: preserve-3d;
-        }
-
-        /* FLIP ON CLICK */
-        .flip-card.flipped .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-
-        /* FRONT AND BACK STYLES */
-        .flip-card-front,
-        .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: 20px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-            transition: 0.3s;
-        }
-
-        /* FRONT SIDE */
-        .flip-card-front {
-            background: linear-gradient(135deg, #28a745, #20c997);
-            color: white;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        /* BACK SIDE */
-        .flip-card-back {
-            background: #000;
-            color: white;
-            transform: rotateY(180deg);
-            font-weight: bold;
-            text-align: center;
-        }
-
-        /* HEADINGS */
-        .flip-card h3 {
-            margin-bottom: 25px;
-            font-size: 28px;
-        }
-
-        /* LINKS / BUTTONS */
-        .flip-card a {
-            display: inline-block;
-            margin: 15px;
-            /* increased margin */
-            padding: 18px 40px;
-            /* increased padding for bigger button */
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 14px;
-            /* slightly larger radius */
-            color: white;
-            font-size: 18px;
-            /* increased font size */
-            transition: 0.3s;
-        }
-
-        /* FRONT SIDE BUTTONS - BLACK */
-        .flip-card-front a {
-            background: #000;
-            /* black color */
-        }
-
-        /* BACK SIDE BUTTONS - GREEN */
-        .flip-card-back a {
-            background: linear-gradient(45deg, #28a745, #20c997);
-        }
-
-        /* HOVER EFFECT */
-        .flip-card a:hover {
-            transform: scale(1.08);
-            /* slightly more pop */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-        }
-
-        /* ANIMATIONS */
-        @keyframes diagonalMove {
-            0% {
-                left: -120%;
-            }
-
-            100% {
-                left: -20%;
-            }
-        }
-
-        @keyframes heroAppear {
-            0% {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes formAppear {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* RESPONSIVE */
-        @media(max-width:600px) {
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .flip-card {
-                width: 90%;
-                height: auto;
-            }
-
-            .flip-card a {
-                padding: 14px 30px;
-                font-size: 16px;
-                margin: 12px;
-            }
-        }
-        /* =========================
-   FORCE SAME DESIGN ON MOBILE
-   ========================= */
-@media (max-width: 768px) {
-
-    body {
-        overflow: hidden;
-    }
-
-    .hero {
-        height: 40vh; /* same as desktop */
-        padding: 20px;
-    }
-
-    .hero h1 {
-        font-size: 48px; /* same as desktop */
-    }
-
-    .hero p {
-        font-size: 20px; /* same as desktop */
-    }
-
-    .flip-card {
-        width: 500px !important;  /* force desktop size */
-        height: 350px !important; /* force desktop size */
-        transform: scale(0.75);   /* fit screen but keep design same */
-        transform-origin: center;
-    }
-
-    .flip-card a {
-        font-size: 18px;
-        padding: 18px 40px;
-    }
-
-    .diagonal-bg {
-        width: 200%;
-        height: 200%;
-        left: -20%;
-    }
-}
-        }
-        /* =========================
-   RESPONSIVE FIX FOR E-WASTE PORTAL
-   Mobile + Tablet Perfect View
-   ========================= */
-
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
 }
 
+html,
 body {
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-}
-
-/* Hero/Main Section */
-.hero-section {
-    width: 100%;
-    min-height: 100vh;
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-    position: relative;
-}
-
-/* Heading Content */
-.hero-content {
-    width: 100%;
-    max-width: 900px;
-    margin-bottom: 40px;
-    z-index: 2;
-    padding: 20px;
-}
-
-.hero-content h1 {
-    font-size: 4rem;
-    line-height: 1.2;
-    color: white;
-    word-break: break-word;
-}
-
-.hero-content p {
-    font-size: 1.3rem;
-    color: white;
-    margin-top: 15px;
-    line-height: 1.6;
-}
-
-/* Register/Login Container */
-.auth-container {
-    width: 90%;
-    max-width: 500px;
-    background: linear-gradient(135deg, #21d17f, #1fc8db);
-    padding: 40px 30px;
-    border-radius: 25px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-    z-index: 3;
-    margin-top: 20px;
-}
-
-.auth-container h2 {
-    font-size: 2.2rem;
-    color: white;
-    margin-bottom: 30px;
-}
-
-.auth-container .btn {
-    display: block;
-    width: 100%;
-    max-width: 220px;
-    margin: 15px auto;
-    padding: 15px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    background: black;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.auth-container .btn:hover {
-    background: #222;
-    transform: scale(1.05);
-}
-
-/* =========================
-   TABLET VIEW
-   ========================= */
-@media (max-width: 1024px) {
-    .hero-section {
-        padding: 50px 30px;
-    }
-
-    .hero-content h1 {
-        font-size: 3.2rem;
-    }
-
-    .hero-content p {
-        font-size: 1.2rem;
-    }
-
-    .auth-container {
-        width: 85%;
-        padding: 35px 25px;
-    }
-
-    .auth-container h2 {
-        font-size: 2rem;
-    }
-}
-
-/* =========================
-   MOBILE VIEW
-   ========================= */
-@media (max-width: 768px) {
-    .hero-section {
-        padding: 30px 15px;
-        min-height: auto;
-    }
-
-    .hero-content {
-        margin-bottom: 25px;
-        padding: 10px;
-    }
-
-    .hero-content h1 {
-        font-size: 2.3rem;
-        line-height: 1.3;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-        line-height: 1.5;
-    }
-
-    .auth-container {
-        width: 95%;
-        padding: 30px 20px;
-        margin-top: 15px;
-    }
-
-    .auth-container h2 {
-        font-size: 1.8rem;
-    }
-
-    .auth-container .btn {
-        width: 100%;
-        max-width: 200px;
-        padding: 14px;
-        font-size: 1rem;
-    }
-}
-
-/* =========================
-   SMALL MOBILE VIEW
-   ========================= */
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 1.9rem;
-    }
-
-    .hero-content p {
-        font-size: 0.95rem;
-    }
-
-    .auth-container {
-        padding: 25px 15px;
-    }
-
-    .auth-container h2 {
-        font-size: 1.5rem;
-    }
-
-    .auth-container .btn {
-        max-width: 180px;
-        padding: 12px;
-        font-size: 0.95rem;
-    }
-
-    /* =========================================
-   E-WASTE PORTAL RESPONSIVE CSS
-   Keeps center container visible on all devices
-   Desktop + Tablet + Mobile
-   ========================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
     width: 100%;
     min-height: 100%;
     overflow-x: hidden;
-    font-family: Arial, sans-serif;
 }
 
-/* MAIN SECTION */
-.hero-section {
+/* BODY */
+body {
     min-height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-    padding: 80px 20px 60px;
+    background: #18191a;
     position: relative;
-}
-
-/* TOP CONTENT */
-.hero-content {
-    width: 100%;
-    max-width: 1000px;
-    margin-bottom: 60px;
-    z-index: 2;
-}
-
-.hero-content h1 {
-    font-size: clamp(2.2rem, 5vw, 5rem);
-    color: white;
-    font-weight: bold;
-    line-height: 1.2;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-}
-
-.hero-content p {
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    color: white;
-    line-height: 1.5;
-    max-width: 850px;
-    margin: auto;
-}
-
-/* CENTER LOGIN/REGISTER CONTAINER */
-.auth-box {
-    width: 100%;
-    max-width: 550px;
-    padding: 50px 30px;
-    background: linear-gradient(135deg, #2de0c8, #2ed573);
-    border-radius: 25px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-    text-align: center;
-    z-index: 3;
-    display: block;
-    position: relative;
-}
-
-/* BOX TITLE */
-.auth-box h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    color: white;
-    margin-bottom: 30px;
-}
-
-/* BUTTONS */
-.auth-box a,
-.auth-box button {
-    display: block;
-    width: 100%;
-    max-width: 230px;
-    margin: 15px auto;
-    padding: 16px;
-    background: black;
-    color: white;
-    font-size: clamp(1rem, 2vw, 1.3rem);
-    font-weight: bold;
-    text-decoration: none;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.auth-box a:hover,
-.auth-box button:hover {
-    background: #111;
-    transform: scale(1.05);
-}
-
-/* =========================
-   TABLET VIEW
-   ========================= */
-@media (max-width: 1024px) {
-    .hero-section {
-        padding: 70px 20px;
-    }
-
-    .hero-content {
-        margin-bottom: 50px;
-    }
-
-    .auth-box {
-        max-width: 500px;
-        padding: 45px 25px;
-    }
-}
-
-/* =========================
-   MOBILE VIEW
-   ========================= */
-@media (max-width: 768px) {
-    .hero-section {
-        padding: 50px 15px;
-    }
-
-    .hero-content {
-        margin-bottom: 35px;
-    }
-
-    .hero-content h1 {
-        font-size: clamp(2rem, 8vw, 3rem);
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-        padding: 0 10px;
-    }
-
-    .auth-box {
-        width: 95%;
-        padding: 35px 20px;
-        border-radius: 20px;
-    }
-
-    .auth-box h2 {
-        font-size: 1.8rem;
-    }
-
-    .auth-box a,
-    .auth-box button {
-        max-width: 200px;
-        padding: 14px;
-        font-size: 1rem;
-    }
-}
-
-/* =========================
-   SMALL MOBILE VIEW
-   ========================= */
-@media (max-width: 480px) {
-    .hero-section {
-        padding: 40px 12px;
-    }
-
-    .hero-content h1 {
-        font-size: 1.7rem;
-        line-height: 1.3;
-    }
-
-    .hero-content p {
-        font-size: 0.9rem;
-    }
-
-    .auth-box {
-        width: 96%;
-        padding: 30px 15px;
-    }
-
-    .auth-box h2 {
-        font-size: 1.6rem;
-    }
-
-    .auth-box a,
-    .auth-box button {
-        max-width: 180px;
-        padding: 12px;
-        font-size: 0.95rem;
-    }
-}
-}
-        /* =========================
-   MOBILE + TABLET RESPONSIVE FIX
-   E-WASTE PORTAL
-========================= */
-
-html, body {
     overflow-x: hidden;
-    width: 100%;
+    overflow-y: auto;
 }
 
-/* HERO SECTION */
-.hero-section,
-.banner,
-.home-section {
-    width: 100%;
-    min-height: auto;
-    padding: 60px 20px;
-    text-align: center;
+/* HERO */
+.hero {
+    position: relative;
+    z-index: 2;
+    min-height: 40vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-/* MAIN HEADING */
-.hero-section h1,
-.banner h1,
-.home-section h1 {
-    font-size: clamp(2.2rem, 8vw, 4.5rem);
-    line-height: 1.2;
-    margin-bottom: 20px;
-    word-break: break-word;
-}
-
-/* SUBTEXT */
-.hero-section p,
-.banner p,
-.home-section p {
-    font-size: clamp(1rem, 4vw, 1.4rem);
-    line-height: 1.6;
-    padding: 0 15px;
-    max-width: 95%;
-    margin: auto;
-}
-
-/* GET STARTED BOX */
-.auth-container,
-.get-started,
-.login-register-box {
-    width: 90%;
-    max-width: 500px;
-    margin: 30px auto;
     padding: 40px 20px;
-    border-radius: 25px;
     text-align: center;
+    color: white;
+    opacity: 0;
+    animation: heroAppear 1s forwards 0.3s;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    margin-bottom: 15px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.hero p {
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    color: #eee;
+    max-width: 800px;
+    line-height: 1.5;
+}
+
+/* DIAGONAL BG */
+.diagonal-bg {
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 200%;
+    height: 200%;
+    background: #26ac24;
+    transform: rotate(-45deg);
+    animation: diagonalMove 1s ease forwards 0.8s;
+    z-index: 1;
+}
+
+/* FLIP CARD */
+.flip-card {
+    perspective: 1200px;
+    width: min(500px, 90%);
+    height: 350px;
+    margin: 0 auto 50px;
+    position: relative;
+    top: -20px;
+    z-index: 2;
+    opacity: 0;
+    animation: formAppear 1s forwards 1.6s;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* FRONT */
+.flip-card-front {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+}
+
+/* BACK */
+.flip-card-back {
+    background: #000;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.flip-card h3 {
+    margin-bottom: 25px;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
 }
 
 /* BUTTONS */
-.auth-container button,
-.get-started button,
-.login-register-box button,
-.btn {
-    width: 100%;
-    max-width: 260px;
-    padding: 15px;
-    margin: 12px auto;
-    font-size: 1.2rem;
-    border-radius: 18px;
-    display: block;
+.flip-card a {
+    display: inline-block;
+    margin: 12px;
+    padding: 16px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 14px;
+    color: white;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    transition: 0.3s;
+    min-width: 180px;
+    text-align: center;
 }
 
-/* TABLET */
+.flip-card-front a {
+    background: #000;
+}
+
+.flip-card-back a {
+    background: linear-gradient(45deg, #28a745, #20c997);
+}
+
+.flip-card a:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* =========================
+   TABLET
+========================= */
 @media (max-width: 992px) {
-    .hero-section,
-    .banner,
-    .home-section {
-        padding: 50px 15px;
+    .hero {
+        min-height: 38vh;
+        padding: 35px 20px;
     }
 
-    .auth-container,
-    .get-started,
-    .login-register-box {
-        width: 92%;
+    .flip-card {
+        width: 85%;
+        height: 330px;
     }
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 @media (max-width: 768px) {
-
-    .hero-section h1,
-    .banner h1,
-    .home-section h1 {
-        font-size: clamp(2rem, 10vw, 3.5rem);
+    body {
+        overflow-y: auto;
     }
 
-    .hero-section p,
-    .banner p,
-    .home-section p {
+    .hero {
+        min-height: auto;
+        padding: 30px 15px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.2rem, 9vw, 3.5rem);
+    }
+
+    .hero p {
         font-size: 1rem;
+        padding: 0 10px;
     }
 
-    .auth-container,
-    .get-started,
-    .login-register-box {
-        padding: 35px 15px;
+    .flip-card {
+        width: 92%;
+        height: 320px;
+        top: 0;
+        margin-top: 20px;
     }
 
-    .auth-container button,
-    .get-started button,
-    .login-register-box button,
-    .btn {
-        font-size: 1rem;
-        padding: 14px;
-    }
-}
-
-/* SMALL MOBILE */
-@media (max-width: 480px) {
-
-    .hero-section,
-    .banner,
-    .home-section {
-        padding: 40px 10px;
-    }
-
-    .hero-section h1,
-    .banner h1,
-    .home-section h1 {
+    .flip-card h3 {
         font-size: 2rem;
     }
 
-    .hero-section p,
-    .banner p,
-    .home-section p {
+    .flip-card a {
+        width: 100%;
+        max-width: 230px;
+        padding: 14px;
+        font-size: 1rem;
+        margin: 10px auto;
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+@media (max-width: 480px) {
+    .hero {
+        padding: 25px 12px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
         font-size: 0.95rem;
     }
 
-    .auth-container,
-    .get-started,
-    .login-register-box {
+    .flip-card {
         width: 95%;
-        padding: 30px 12px;
+        height: 300px;
     }
 
-    .auth-container button,
-    .get-started button,
-    .login-register-box button,
-    .btn {
-        width: 100%;
-        max-width: 220px;
+    .flip-card-front,
+    .flip-card-back {
+        padding: 25px 15px;
+    }
+
+    .flip-card h3 {
+        font-size: 1.8rem;
+    }
+
+    .flip-card a {
+        max-width: 200px;
+        padding: 12px;
         font-size: 0.95rem;
     }
 }
-        
-    
+
+/* ANIMATIONS */
+@keyframes diagonalMove {
+    0% {
+        left: -120%;
+    }
+
+    100% {
+        left: -20%;
+    }
+}
+
+@keyframes heroAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes formAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
     </style>
 </head>
 
