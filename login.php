@@ -15,7 +15,7 @@ if (isset($_POST['login'])) {
         $row = mysqli_fetch_assoc($result);
 
         if (password_verify($password, $row['password'])) {
-            /* SESSION STORE */
+
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['user_name'] = $row['name'];
             $_SESSION['user_email'] = $row['email'];
@@ -43,22 +43,30 @@ if (isset($_POST['login'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-      * {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', sans-serif;
         }
 
-        /* BODY & SPLIT DIAGONAL BACKGROUND */
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+            overflow-x: hidden;
+        }
+
+        /* BODY */
         body {
             min-height: 100vh;
             background: #18191a;
-            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
+            overflow-y: auto;
+            padding: 140px 20px 40px;
         }
 
         /* DIAGONAL BACKGROUND */
@@ -77,31 +85,34 @@ if (isset($_POST['login'])) {
         /* HERO TITLE */
         .hero {
             position: absolute;
-            top: 50px;
+            top: 40px;
             width: 100%;
             text-align: center;
             color: white;
-            z-index: 2;
-            opacity: 0;
-            transform: translateY(-40px);
-            animation: heroSlide 1s forwards 0.8s;
+            z-index: 3;
+            opacity: 1;
+            animation: heroSlide 1s ease forwards;
+            padding: 0 20px;
         }
 
         .hero h1 {
-            font-size: 42px;
+            font-size: clamp(2.2rem, 6vw, 3.8rem);
+            line-height: 1.2;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+            margin-bottom: 10px;
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: clamp(1rem, 2vw, 1.3rem);
             color: #eee;
+            line-height: 1.5;
         }
 
         /* LOGIN CARD */
         .login-card {
             position: relative;
-            z-index: 2;
-            width: 400px;
+            z-index: 3;
+            width: min(400px, 95%);
             background: white;
             padding: 40px;
             border-radius: 20px;
@@ -109,24 +120,25 @@ if (isset($_POST['login'])) {
             text-align: center;
             opacity: 0;
             transform: translateY(50px);
-            animation: cardSlide 1s forwards 1.2s;
+            animation: cardSlide 1s forwards 1s;
+            margin-top: 40px;
         }
 
         /* CARD TITLE */
         .login-card h2 {
             margin-bottom: 25px;
             color: #28a745;
-            font-size: 26px;
+            font-size: clamp(1.8rem, 4vw, 2.3rem);
         }
 
         /* INPUTS */
         .login-card input {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             margin: 10px 0;
             border-radius: 8px;
             border: 1px solid #ccc;
-            font-size: 14px;
+            font-size: 15px;
             transition: 0.3s;
         }
 
@@ -144,11 +156,7 @@ if (isset($_POST['login'])) {
         }
 
         .password-box input {
-            width: 100%;
-            padding: 12px;
             padding-right: 45px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
         }
 
         .password-box i {
@@ -168,11 +176,12 @@ if (isset($_POST['login'])) {
         /* BUTTON */
         .login-card button {
             width: 100%;
-            padding: 14px;
+            padding: 15px;
             background: #28a745;
             border: none;
             color: white;
             font-size: 16px;
+            font-weight: bold;
             border-radius: 8px;
             margin-top: 15px;
             cursor: pointer;
@@ -181,10 +190,10 @@ if (isset($_POST['login'])) {
 
         .login-card button:hover {
             background: #20c997;
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
-        /* ERROR MESSAGE */
+        /* ERROR */
         .error {
             color: red;
             margin-bottom: 10px;
@@ -193,14 +202,14 @@ if (isset($_POST['login'])) {
 
         /* REGISTER LINK */
         .register-link {
-            margin-top: 15px;
+            margin-top: 18px;
             font-size: 14px;
         }
 
         .register-link a {
             color: #28a745;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .register-link a:hover {
@@ -221,7 +230,7 @@ if (isset($_POST['login'])) {
         @keyframes heroSlide {
             0% {
                 opacity: 0;
-                transform: translateY(-40px);
+                transform: translateY(-30px);
             }
 
             100% {
@@ -242,19 +251,101 @@ if (isset($_POST['login'])) {
             }
         }
 
-        /* RESPONSIVE */
-        @media(max-width:500px) {
+        /* =========================
+           TABLET VIEW
+        ========================= */
+        @media (max-width: 992px) {
+            body {
+                padding: 130px 20px 40px;
+            }
+
+            .hero {
+                top: 30px;
+            }
+
             .login-card {
-                width: 90%;
-                padding: 30px;
+                width: 85%;
+                max-width: 420px;
+                padding: 35px;
+            }
+        }
+
+        /* =========================
+           MOBILE VIEW
+        ========================= */
+        @media (max-width: 768px) {
+            body {
+                padding: 120px 15px 30px;
+                align-items: flex-start;
+            }
+
+            .hero {
+                top: 25px;
             }
 
             .hero h1 {
-                font-size: 32px;
+                font-size: clamp(2rem, 9vw, 3rem);
             }
 
             .hero p {
-                font-size: 16px;
+                font-size: 1rem;
+            }
+
+            .login-card {
+                width: 95%;
+                padding: 30px 20px;
+                margin-top: 30px;
+            }
+
+            .login-card h2 {
+                font-size: 1.8rem;
+            }
+
+            .login-card input,
+            .password-box input {
+                padding: 13px;
+                font-size: 14px;
+            }
+
+            .login-card button {
+                padding: 14px;
+                font-size: 15px;
+            }
+        }
+
+        /* =========================
+           SMALL MOBILE VIEW
+        ========================= */
+        @media (max-width: 480px) {
+            body {
+                padding: 110px 12px 25px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .login-card {
+                width: 96%;
+                padding: 25px 15px;
+                border-radius: 18px;
+            }
+
+            .login-card h2 {
+                font-size: 1.6rem;
+            }
+
+            .login-card button {
+                padding: 13px;
+                font-size: 14px;
+            }
+
+            .register-link {
+                font-size: 13px;
             }
         }
     </style>
@@ -275,9 +366,11 @@ if (isset($_POST['login'])) {
     <div class="login-card">
         <h2>Welcome Back</h2>
 
-        <?php if (isset($error)) {
+        <?php
+        if (isset($error)) {
             echo "<div class='error'>$error</div>";
-        } ?>
+        }
+        ?>
 
         <form method="POST">
             <input type="email" name="email" placeholder="Enter your email" required>
