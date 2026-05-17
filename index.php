@@ -263,6 +263,7 @@
         left: -20%;
     }
 }
+        }
         /* =========================
    RESPONSIVE FIX FOR E-WASTE PORTAL
    Mobile + Tablet Perfect View
@@ -643,7 +644,7 @@ html, body {
     }
 }
 }
-        }
+        
     
     </style>
 </head>
