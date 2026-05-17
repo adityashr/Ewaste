@@ -253,6 +253,163 @@ if (isset($_POST['request'])) {
             border-radius: 8px;
             text-align: center;
         }
+
+
+        /*old  */
+        /* =========================================
+   RESPONSIVE FIX FOR LOGIN PAGE
+   OLD CSS KE END MEIN ADD KARO
+   ========================================= */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden !important;
+}
+
+/* BODY FIX */
+body {
+    overflow-y: auto !important;
+    padding: 140px 20px 40px;
+}
+
+/* HERO FIX */
+.hero {
+    top: 40px !important;
+    width: 100%;
+    padding: 0 20px;
+    z-index: 3;
+}
+
+.hero h1 {
+    font-size: clamp(2.2rem, 6vw, 3.8rem) !important;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: clamp(1rem, 2vw, 1.3rem) !important;
+    line-height: 1.5;
+}
+
+/* LOGIN CARD FIX */
+.login-card {
+    width: min(400px, 95%) !important;
+    padding: 40px !important;
+    margin-top: 40px;
+    z-index: 3;
+}
+
+/* INPUT FIX */
+.login-card input,
+.password-box input {
+    font-size: 15px;
+    padding: 14px;
+}
+
+/* BUTTON FIX */
+.login-card button {
+    padding: 15px;
+    font-size: 16px;
+}
+
+/* =========================
+   TABLET VIEW
+   ========================= */
+@media (max-width: 992px) {
+    body {
+        padding: 130px 20px 40px;
+    }
+
+    .login-card {
+        width: 85% !important;
+        max-width: 420px;
+        padding: 35px !important;
+    }
+
+    .hero {
+        top: 30px !important;
+    }
+}
+
+/* =========================
+   MOBILE VIEW
+   ========================= */
+@media (max-width: 768px) {
+    body {
+        padding: 120px 15px 30px;
+        align-items: flex-start;
+    }
+
+    .hero {
+        top: 25px !important;
+    }
+
+    .hero h1 {
+        font-size: clamp(2rem, 9vw, 3rem) !important;
+    }
+
+    .hero p {
+        font-size: 1rem !important;
+    }
+
+    .login-card {
+        width: 95% !important;
+        padding: 30px 20px !important;
+        margin-top: 30px;
+    }
+
+    .login-card h2 {
+        font-size: 1.8rem;
+    }
+
+    .login-card input,
+    .password-box input {
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    .login-card button {
+        padding: 14px;
+        font-size: 15px;
+    }
+}
+
+/* =========================
+   SMALL MOBILE VIEW
+   ========================= */
+@media (max-width: 480px) {
+    body {
+        padding: 110px 12px 25px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem !important;
+    }
+
+    .hero p {
+        font-size: 0.9rem !important;
+    }
+
+    .login-card {
+        width: 96% !important;
+        padding: 25px 15px !important;
+        border-radius: 18px;
+    }
+
+    .login-card h2 {
+        font-size: 1.6rem;
+    }
+
+    .login-card button {
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    .register-link {
+        font-size: 13px;
+    }
+}
     </style>
 </head>
 
