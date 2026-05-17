@@ -263,6 +263,192 @@
         left: -20%;
     }
 }
+        /* =========================
+   RESPONSIVE FIX FOR E-WASTE PORTAL
+   Mobile + Tablet Perfect View
+   ========================= */
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Hero/Main Section */
+.hero-section {
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* Heading Content */
+.hero-content {
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 40px;
+    z-index: 2;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.2;
+    color: white;
+    word-break: break-word;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    color: white;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+/* Register/Login Container */
+.auth-container {
+    width: 90%;
+    max-width: 500px;
+    background: linear-gradient(135deg, #21d17f, #1fc8db);
+    padding: 40px 30px;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    z-index: 3;
+    margin-top: 20px;
+}
+
+.auth-container h2 {
+    font-size: 2.2rem;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.auth-container .btn {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    margin: 15px auto;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.auth-container .btn:hover {
+    background: #222;
+    transform: scale(1.05);
+}
+
+/* =========================
+   TABLET VIEW
+   ========================= */
+@media (max-width: 1024px) {
+    .hero-section {
+        padding: 50px 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 3.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .auth-container {
+        width: 85%;
+        padding: 35px 25px;
+    }
+
+    .auth-container h2 {
+        font-size: 2rem;
+    }
+}
+
+/* =========================
+   MOBILE VIEW
+   ========================= */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 30px 15px;
+        min-height: auto;
+    }
+
+    .hero-content {
+        margin-bottom: 25px;
+        padding: 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.3rem;
+        line-height: 1.3;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .auth-container {
+        width: 95%;
+        padding: 30px 20px;
+        margin-top: 15px;
+    }
+
+    .auth-container h2 {
+        font-size: 1.8rem;
+    }
+
+    .auth-container .btn {
+        width: 100%;
+        max-width: 200px;
+        padding: 14px;
+        font-size: 1rem;
+    }
+}
+
+/* =========================
+   SMALL MOBILE VIEW
+   ========================= */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.9rem;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+
+    .auth-container {
+        padding: 25px 15px;
+    }
+
+    .auth-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .auth-container .btn {
+        max-width: 180px;
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+}
     </style>
 </head>
 
