@@ -449,6 +449,194 @@ body {
         font-size: 0.95rem;
     }
 }
+        /* =========================================
+   PERFECT DESKTOP + MOBILE + TABLET RESPONSIVE
+   SAME LAYOUT EVERYWHERE
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Main Hero Section */
+.hero {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 80px 20px;
+    position: relative;
+    text-align: center;
+}
+
+/* Heading Section */
+.hero-text {
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 80px;
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    color: white;
+    font-weight: bold;
+    line-height: 1.2;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.4);
+    margin-bottom: 15px;
+}
+
+.hero-text p {
+    font-size: clamp(1rem, 2vw, 1.6rem);
+    color: white;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Center Box */
+.get-started-box {
+    width: 100%;
+    max-width: 650px;
+    padding: 60px 40px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #2de0c8, #2ed573);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    z-index: 3;
+    text-align: center;
+}
+
+/* Box Heading */
+.get-started-box h2 {
+    color: white;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    margin-bottom: 35px;
+}
+
+/* Buttons */
+.get-started-box a,
+.get-started-box button {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: 18px auto;
+    padding: 18px;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-weight: bold;
+    color: white;
+    background: black;
+    border: none;
+    border-radius: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.get-started-box a:hover,
+.get-started-box button:hover {
+    transform: scale(1.05);
+    background: #111;
+}
+
+/* =========================
+   TABLET VIEW
+   ========================= */
+@media (max-width: 1024px) {
+    .hero {
+        padding: 70px 25px;
+    }
+
+    .hero-text {
+        margin-bottom: 60px;
+    }
+
+    .get-started-box {
+        max-width: 550px;
+        padding: 50px 30px;
+    }
+}
+
+/* =========================
+   MOBILE VIEW
+   ========================= */
+@media (max-width: 768px) {
+    .hero {
+        padding: 50px 15px;
+    }
+
+    .hero-text {
+        margin-bottom: 40px;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+        line-height: 1.3;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    .get-started-box {
+        width: 95%;
+        padding: 40px 20px;
+        border-radius: 20px;
+    }
+
+    .get-started-box h2 {
+        font-size: 2rem;
+    }
+
+    .get-started-box a,
+    .get-started-box button {
+        max-width: 220px;
+        padding: 15px;
+        font-size: 1rem;
+    }
+}
+
+/* =========================
+   SMALL MOBILE VIEW
+   ========================= */
+@media (max-width: 480px) {
+    .hero {
+        padding: 40px 12px;
+    }
+
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-text p {
+        font-size: 0.9rem;
+    }
+
+    .get-started-box {
+        padding: 30px 15px;
+    }
+
+    .get-started-box h2 {
+        font-size: 1.7rem;
+    }
+
+    .get-started-box a,
+    .get-started-box button {
+        max-width: 200px;
+        padding: 13px;
+        font-size: 0.95rem;
+    }
+}
     </style>
 </head>
 
