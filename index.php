@@ -448,6 +448,7 @@ body {
         padding: 12px;
         font-size: 0.95rem;
     }
+}
     /* =========================================
    E-WASTE PORTAL RESPONSIVE CSS
    Keeps center container visible on all devices
